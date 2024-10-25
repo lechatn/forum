@@ -1,0 +1,186 @@
+
+#wrapper{
+    display: block;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+    color:var(--white);
+    border-radius: 10px;
+    padding: 5% 2.5%;
+    z-index: 1;
+} 
+
+.part-one-post{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+    font-size: 1.5em;
+}
+
+.title-post{
+    width: 70%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+}
+
+.title-post input{
+    width: 70%;
+    padding: 0.5%;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    background: var(--bg);
+    background-color: rgb(217, 217, 217, 0.05);
+    color: var(--white);
+}
+
+.tag-zone-post{
+    width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.tag-zone-post select{
+    height: 50%;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    background: var(--bg);
+    background-color: rgb(217, 217, 217, 0.05);
+    color: var(--white);
+}
+
+.second-part-post{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+    font-size: 1.5em;
+}
+
+.second-part-post textarea{
+    width: 70%;
+    padding: 0.5%;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    background: var(--bg);
+    background-color: rgb(217, 217, 217, 0.05);
+    color: var(--white);
+}
+
+.third-part-post, .second-part-topic{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+}
+
+.third-part-post a, .second-part-topic a{
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.third-part-post button, .second-part-topic button{
+    border-radius: 5px;
+    background-color: rgb(217, 217, 217, 0.05);
+    color: var(--light-grey);
+    border: none;
+    outline: 0.5px solid var(--light-grey);
+    padding: 1% 2%;
+    cursor: pointer;
+}
+
+.third-part-post button:hover, .second-part-topic button:hover{
+    background-color: rgb(217, 217, 217, 0.2);
+}
+
+/* Topic Wrapper */ 
+
+
+#wrapperTopic{
+    display: none;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    color: var(--white);
+    border-radius: 5px;
+    padding: 30px 40px;
+    z-index: 1;
+} 
+
+.part-one-topic{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 5%;
+    font-size: 1.5em;
+}
+
+.part-one-topic input{
+    width: 70%;
+    margin-top: 1%;
+    padding: 0.5%;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    background: var(--bg);
+    background-color: rgb(217, 217, 217, 0.05);
+    color: var(--white);
+}
+
+
+/* Comment wrapper*/
+
+#wrapperComments{
+    display:block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: 20%;
+    width: 50%;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+    color: var(--white);
+    border-radius: 5px;
+    padding: 30px 40px;
+    z-index: 1;
+}
+
+.part-one-comment{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+    font-size: 1.5em;
+}
+
+#wrapper h1, #wrapperTopic h1 {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.popup-exit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.deletePopUp {
+    display: none;
+}
+
+.postsEditor {
+    display: none;
+}
+

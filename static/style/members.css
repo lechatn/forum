@@ -1,0 +1,55 @@
+.members-link {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+}
+
+.allMembers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 5%;
+}
+
+.ProfilePicture img {
+    border-radius: 50%;
+}
+
+.member {
+    width: 60%;
+    align-items: center;
+    border: 1px solid var(--grey);
+    border-radius: 15px;
+    padding: 2%;
+    margin: 8% ;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    
+    h3 {
+        font-size: 2em;
+        color: white;
+        text-align: center;
+    }
+
+    i{
+        font-size: 6em;
+        color: white;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .allMembers {
+        margin-top: 5rem;
+        margin-left: 4.5rem;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+
+@media screen and (max-width: 960px) {
+    .allMembers {
+        margin-top: 5rem;
+        margin-left: 4.5rem;
+    }
+}
+
+ 

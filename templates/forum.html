@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/style/popup.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/header.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/forum.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/forumOnly.css">
+    <link rel="stylesheet" type="text/css" href="/static/style/style.css">
+    <link rel="icon" type="image/jpg" href="/static/IMG/favicon.png">
+    <title>Forum</title>
+</head>
+<body>
+    <div class="color-back">
+        <header>
+            <div class="nav">
+                <button class="burger" onclick="show()">
+                    <div id="bar1" class="bar"></div>
+                    <div id="bar2" class="bar"></div>
+                    <div id="bar3" class="bar"></div>
+                </button>
+                <section class="nav-burger">
+                    <ul>
+                        <li class="home-link"><a href="/">Home</a></li>
+                        <li class="forum-link"><a href="/forum">Forum</a></li>
+                        {{if .UserInfo.IsLoggedIn}}
+                            <li class="members-link"><a href="/members">Members</a></li>
+                        {{else}}
+                            <li class="members-link"><a href="/login">Members</a></li>
+                        {{end}}
+                        <li class="about-link"><a href="/about">About</a></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="nav-bar">
+                <section class="logo">
+                    <a href="/"> 
+                        <img src="/static/IMG/diski.png" alt="logo">
+                    </a>
+                </section>
+                <nav> 
+                    <ul>
+                        <li class="home-link"><a href="/">Home</a></li>
+                        <li class="forum-link"><a href="/forum">Forum</a></li>
+                        {{if .UserInfo.IsLoggedIn}}
+                            <li class="members-link"><a href="/members">Members</a></li>
+                        {{else}}
+                            <li class="members-link"><a href="/login">Members</a></li>
+                        {{end}}
+                        <li class="about-link"><a href="/about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="log-bar">
+                <section class="user-bar">
+                    {{if .UserInfo.Username}}
+                        <span class="pseudo">{{.UserInfo.Username}}</span>
+                        <div class="ProfilePicture">
+                            {{if .UserInfo.ProfilePicture}}
+                                <a href="/user?username={{.UserInfo.Username}}">
+                                    <img src="{{.UserInfo.ProfilePicture}}" alt="alternative texte" style="height: 50px;width: 50px;border-radius: 50%;">
+                                </a>
+                            {{else}}
+                                <a href="/user?username={{.UserInfo.Username}}">
+                                    <i class="material-icons" style="font-size:2rem;">account_circle</i>
+                                </a>
+                            {{end}}
+                        </div>
+                    {{end}} 
+                </section>
+                <section class="button-connection">
+                    {{if .UserInfo.IsLoggedIn}}
+                        <a href="/logout" class="log-button">Log out</a>
+                    {{else}}
+                        <a href="/login" class="log-button">Log in</a>
+                    {{end}}
+                </section>
+            </div>
+        </header>
+        <main>
+            <div class="typePage">
+                <a href="/allTopics" >Topics</a>
+                <a href="/forum" class="typePage-OnPage">All posts</a>
+                {{if .UserInfo.IsLoggedIn}}
+                    <a href="/myPosts">My posts</a>
+                    <a href="/liked">Liked posts</a>
+                {{else}}
+                    <a href="/login">My posts</a>
+                    <a href="/login">Liked posts</a>
+                {{end}}
+            </div>
+            <div class="btn-post-zone">
+                {{if .UserInfo.IsLoggedIn}}
+                    <button id="buttonPost" onclick="newPostPopUp()"> Post</button>
+                    <button id="buttonTopic" onclick="newTopicPopUp()">Add new topic</button>
+                {{end}}
+            </div>
+            <div class="main-part-Topic-zone">
+                <div class="Home-topics">
+                    <h1>ALL POSTS</h1>
+                </div>
+            </div>
+            <div class="dropdown forum-dropdown">
+                <button onclick="myDropdownFunc(this)" class="dropbtn">Sort by: ▼</button>
+                <form action="/sort">
+                    <label for="sort">
+                        <div id="myDropdown" class="dropdown-content">
+                            <ul>
+                            <li><button type="submit" name="sort" value="oldest">Oldest post</button></li>
+                            <li><button type="submit" name="sort" value="newest">Newest post</button></li>
+                            <li><button type="submit" name="sort" value="mostLiked">Most liked</button></li>
+                            <li><button type="submit" name="sort" value="mostDisliked">Most disliked</button></li>
+                            <li><button type="submit" name="sort" value="A-Z">A-Z</button></li>
+                            <li><button type="submit" name="sort" value="Z-A">Z-A</button></li>
+                            </ul>
+                        </div>
+                    </label>
+                </form>
+            </div>  
+           
+            <section class="posts">
+                <div id="wrapper">
+                    <form action="/createPost" id="createPost" method="POST">
+                        <h1>Add a new post</h1>
+                        <div class="part-one-post">
+                            <div class="title-post">
+                                <label for="title">Title</label>
+                                <input type="text" id="title" name="title" required maxlength="45">
+                            </div>
+                            <br>
+                            <div class="tag-zone-post">
+                                <label for="topics">Topic(s)</label>
+                                <select id="topics" name="topics" required>
+                                    {{range .Topics}}
+                                        <option value="{{.Title}}">{{.Title}}</option>
+                                    {{end}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="second-part-post">
+                            <label for="content">Content</label>
+                            <textarea id="content" name="content" required maxlength="250"></textarea>
+                        </div>
+                        <div class="third-part-post">          
+                            <div class="acceptCondtions">
+                                <label class="checkbox-popup"><input type="checkbox" required>I agree with <a href="/RGPD"> using condtions</a></label>
+                            </div>
+                            <button type="submit" class="btn-login"> Post </button>
+                        </div>
+
+                        <a href="javascript:void(0)" onclick="togglePopup()" class="popup-exit">
+                            <i class="material-icons">
+                                close
+                            </i>
+                        </a>
+                    </form>
+                </div>
+            </section>
+            <section class="topics">
+                <div id="wrapperTopic">
+                    <form action="/addTopic" method="POST">
+                        <h1>Add a new topic</h1>
+                        <div class="part-one-topic">
+                            <label for="topic">Topic</label>
+                            <input type="text" id="topic" name="topic" required maxlength="15">
+                        </div>
+                        <div class="second-part-topic">
+                            <div class="acceptCondtions">
+                                <label class="checkbox-popup"><input type="checkbox" required>I agree with <a href="/RGPD"> using condtions</a></label>
+                            </div>
+                            <button type="submit" class="btn-login">ADD</button>
+                        </div>
+                        <a href="javascript:void(0)" onclick="togglePopup3()" class="popup-exit">
+                            <i class="material-icons">
+                                close
+                            </i>
+                        </a>
+                    </form>
+                </div>
+            </section>
+            <section class="actu">
+                {{$UserInfo := .UserInfo}}
+                {{$Comments := .Comments}}
+                {{range .Posts}}
+                    {{ $currentPostId := .Id }}
+                    {{if eq .Id -1}}
+                        <p>No post Yet</p>
+                    {{else}}
+                        <article class="post{{.Id}}">
+                            <div class="top-post">
+                                <div class="profile-picture" style="display: flex;">
+                                    {{if .ProfilePicture}}
+                                        <img src="{{.ProfilePicture}}" alt="alternative texte" style="height: 50px;width: 50px;border-radius: 50%;">
+                                    {{else}}
+                                        <i class="material-icons" style="font-size:50px;">account_circle</i>
+                                    {{end}}
+                                    <p class="author">{{.Author}}</p>
+                                </div>
+                                <div class="like-com-zone">
+                                    <div class="liked-zone">
+                                        {{if $UserInfo.IsLoggedIn}}
+                                            <button class="likeButton forum-btn" data-post-id="{{.Id}}" ><i class="like-thumb material-icons" >
+                                                thumb_up
+                                            </i></button>
+                                        {{else}}
+                                            <button class="likeButton forum-btn" data-post-id="{{.Id}}" disabled><i class="like-thumb
+                                                material-icons">
+                                                thumb_up
+                                            </i></button>
+                                        {{end}}
+                                        <p id="likeCount{{.Id}}">{{.Likes}}</p>
+                                    </div>
+                                    <div class="disliked-zone">
+                                        {{if $UserInfo.IsLoggedIn}}
+                                            <button class="dislikeButton forum-btn" data-post-id="{{.Id}}"><i class="dislike-thumb material-icons">
+                                                thumb_down
+                                            </i></button>
+                                        {{else}}
+                                            <button class="dislikeButton forum-btn" data-post-id="{{.Id}}" disabled><i class="dislike-thumb
+                                                material-icons">
+                                                thumb_down
+                                            </i></button>
+                                        {{end}}
+                                        <p id="dislikeCount{{.Id}}">{{.Dislikes}}</p>
+                                        <button class="commentButton forum-btn" data-post-id="/"><i class="material-icons">
+                                            chat
+                                        </i></button>
+                                        <p id="commentCount">{{.Comments}}</p>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="title-zone-post">
+                                <h2>{{.Title}}</h2>
+                                <p class="topics">Topic: {{.Topics}}</p>
+                            </div>
+                            <p class="post-content">{{.Content}}</p>
+                            <p class="date">{{.Date}}</p>
+                            <div class="bot-post">
+                                {{if $UserInfo.IsLoggedIn}}
+                                    <button class="forum-btn btnForComment" id="commentButton{{$currentPostId}}" data-post-id="{{$currentPostId}}" onclick="newCommentPopUp(this)"><i class="material-icons">
+                                        chat
+                                    </i></button>
+                                {{else}}
+                                    <button class="forum-btn btnForComment" id="commentButton{{$currentPostId}}" data-post-id="{{$currentPostId}}" disabled><i class="material-icons">
+                                        chat
+                                    </i></button>
+                                {{end}}
+                                <button class="show-comment-btn" id="displayComments{{$currentPostId}}" data-post-id="{{$currentPostId}}" onclick="displayComments(this)">▼</button>
+                                {{if eq .Comments 0}}
+                                    <p class="noCommentInfo">No comments yet</p>
+                                {{end}}
+                            </div>
+                            <section class="commentArea" id="comments{{$currentPostId}}">
+                                {{range $Comments}}
+                                    {{if eq .Idpost $currentPostId}}
+                                        <div class="comment">
+                                            <h3>{{.Author}}</h3>
+                                            <p>{{.Content}}</p>
+                                        </div>
+                                    {{end}}
+                                {{end}}
+                            </section> 
+                                <section class="comment-selection comments{{$currentPostId}}">
+                                    <div id="comment-creation">
+                                        <form action="/CreateComment" id="createcomment" method="POST">
+                                            <a href="javascript:void(0)" data-post-id="{{$currentPostId}}" onclick="togglePopup2(this)" class="popup-exit-comment">
+                                                <i class="material-icons">
+                                                    close
+                                                </i>
+                                            </a>
+                                            <h4>Create new comment</h4>
+                                            <div class="part-one-comment">
+                                                <label for="comment">Comment</label>
+                                                <textarea name="comment" id="textComment"></textarea>
+                                                <input type="hidden" name="postId" value="{{ $currentPostId}}">
+                                            </div>
+                                            <div class="second-part-comment">
+                                                <div class="acceptCondtions">
+                                                    <label class="checkbox-popup"><input type="checkbox" required>I agree with <a href="/RGPD"> using condtions</a></label>
+                                                </div>
+                                                <button type="submit">Add comment</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </section>
+                        </article>
+                        <br>
+                    {{end}}
+                {{end}}
+            </section>
+        </main>
+        <footer>
+            <div class="typePage-phone">
+                <a href="/allTopics" >Topics</a>
+                <a href="/forum" class="typePage-OnPage">All posts</a>
+                {{if .UserInfo.IsLoggedIn}}
+                    <a href="/myPosts">My posts</a>
+                    <a href="/liked" >Liked posts</a>
+                {{else}}
+                    <a href="/login">My posts</a>
+                    <a href="/login">Liked posts</a>
+                {{end}}
+            </div>
+        </footer>
+    </div>
+    <script src="/static/JS/index.js"></script>
+    <script src="/static/JS/burger.js"></script>
+</body>
+</html>

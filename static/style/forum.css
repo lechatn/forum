@@ -1,0 +1,474 @@
+main {
+    margin-top: 8%;
+}
+
+.forum-link {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+}
+
+#buttonPost {
+    border-radius: 5px;
+    background-color: rgb(217, 217, 217, 0.05);
+    color: var(--light-grey);
+    border: none;
+    outline: 0.5px solid var(--light-grey);
+    padding: 0.25% 1.25%;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+#buttonTopic {
+    border-radius: 5px;
+    background-color: rgb(217, 217, 217, 0.05);
+    color: var(--light-grey);
+    border: none;
+    outline: 0.5px solid var(--light-grey);
+    padding: 0.25% 1.25%;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+#buttonPost:hover, #buttonTopic:hover {
+    background-color: rgb(217, 217, 217, 0.2);
+}
+
+/* Button  Filter */
+
+.dropbtn {
+    top: 20%;
+    position: fixed;
+    border-radius: 5px;
+    background-color: rgb(217, 217, 217, 0.05);
+    color: var(--light-grey);
+    border: none;
+    outline: 0.5px solid var(--light-grey);
+    cursor: pointer;
+    font-size: 1.25em;
+    font-weight:lighter ;
+    color: var(--white);
+    padding: 0.25% 1.25%;
+  }
+  
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: rgb(217, 217, 217, 0.05);
+    backdrop-filter: blur(20px);
+    --webkit-backdrop-filter: blur(20px);
+    min-width: 10%;
+    overflow: auto;
+    outline: 0.5px solid var(--light-grey);
+    border-radius: 5px;
+    z-index: 1;
+    margin-bottom: 5%;
+    top: 25%;
+  }
+
+.dropdown-content button {
+    color: var(--light-grey);
+    background-color: transparent;
+    border:none;
+    display: block;
+    cursor: pointer;
+}
+  
+.dropdown button:hover {
+      border:none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content ul li {
+    padding: 0.5em;
+    cursor: pointer;
+    background-color: transparent;
+    outline: 0.05px solid rgb(234, 234, 234, 0.3);
+
+}
+
+.dropdown-content button {
+    font-size: 1.25em;
+
+}
+
+.dropdown-content ul li:hover {
+    background-color: rgb(217, 217, 217, 0.1);
+}
+
+.forum-dropdown{
+    margin-left: 2.5%;
+}
+
+/* End Button  Filter */
+
+.posts{
+    display: none;
+}
+
+.actu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 5%;
+    gap: 15px;
+}
+
+article {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: rgb(217, 217, 217, 0.05);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    outline: 0.5px solid var(--light-grey);
+    color: var(--light-grey);
+}
+
+
+.top-post{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.like-com-zone{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 5%;
+}
+
+.liked-zone, .disliked-zone, .comment-zone { 
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.liked-zone .material-icons, .disliked-zone .material-icons, .comment-zone .material-icons { 
+    font-size: 1.25em;
+    color:rgb(217, 217, 217, 0.5) ;
+}
+
+.liked-zone .material-icons:hover, .dislikeButton .material-icons:hover{ 
+    color:rgb(217, 217, 217, 0.8);
+}
+
+.liked-zone p, .disliked-zone p, .comment-zone p { 
+    margin: 0;
+}
+
+.forum-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.btnForComment {
+    border-radius: 50%;
+    align-items: center;
+}
+
+.btnForComment .material-icons:hover {
+    color: rgb(217, 217, 217, 0.8);
+}
+
+.author{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 10%;
+}
+
+article h2{
+    margin: 2% 1% 1% 2%;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+article .post-content{
+    width: 85%;
+    padding: 1%;
+    margin: auto;
+    font-weight: normal;
+    border-radius: 5px;
+    outline: 0.5px solid var(--light-grey);
+}
+
+article .topics{
+    margin: 0 80% 2%;
+    width: 20%;
+}
+
+.line{
+    margin-right: 60%;
+    height: 0.5px;
+    background-color: var(--light-grey);
+}
+
+.date{
+    text-align: right;
+    margin-right: 5%;
+    font-size: 0.8em;
+}
+
+.bot-post{
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+
+.bot-post .material-icons{
+    font-size: 1.5em;
+    color:rgb(217, 217, 217, 0.5);
+}
+
+.show-comment-btn {
+    background-color: transparent;
+    color: rgb(217, 217, 217, 0.3);
+    border-radius: 25px;
+    padding: 0;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+}
+
+.show-comment-btn:hover {
+    color: rgb(217, 217, 217, 0.5);
+}
+
+
+.commentArea {
+    display: none;
+    border-top: 0.5px solid var(--light-grey);
+}
+
+.main-part-Topic-zone {
+    width: 50%;
+    display: flex;
+    margin: 0 auto 2%;
+}
+
+.typePage {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 2.5%;
+    top: 15%;
+    font-size: 1em;
+    gap: 10px;
+    outline: 0.5px solid var(--light-grey);
+    border-radius: 5px;
+    padding: 0.25% 1.25%;
+    background-color: rgb(217, 217, 217, 0.05);
+}
+
+.typePage a {
+    text-decoration: none;
+    color: white;
+}
+
+.typePage-OnPage{
+    text-decoration: none;
+    color: #2E9CCA !important; 
+}
+
+.noCommentInfo {
+    font-size: 0.8em;
+    margin-left: 1%;
+}
+
+.btn-post-zone {
+    width: 60%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2.5%;
+    right: 5%;
+}
+
+
+.comment {
+    outline: 0.5px solid var(--light-grey);
+    border-radius: 5px;
+    padding: 1% 1% 2% 2%;
+    background-color: rgb(217, 217, 217, 0.05);
+    width: 80%;
+    margin: 5% auto 5%;
+}
+
+.comment h3 {
+    font-weight: normal;
+    font-size: 1em;
+}
+
+.comment p {
+    font-weight: normal;
+    outline: 0.5px solid var(--light-grey);
+    background-color: rgb(217, 217, 217, 0.08);
+    border-radius: 5px;
+    padding: 1% 1% 2% 1%;
+    word-wrap: break-word;
+}
+
+.comment-selection{
+    display: none;
+    border-top: 0.5px solid var(--light-grey);
+
+}
+
+#comment-creation {
+    justify-content: center;
+    padding: 0.5em;
+}
+
+#comment-creation h4 {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#comment-creation label {
+    font-size: 1em;
+    margin: 0.5em;
+    text-align: center;
+
+}
+
+#comment-creation textarea {
+    width: 80%;
+    height: 10%;
+    margin: 0 auto;
+    padding: 1%;
+    border-radius: 5px;
+    outline: 0.5px solid var(--light-grey);
+    background-color: rgb(217, 217, 217, 0.05);
+    color: var(--white);
+}
+
+#comment-creation a {
+    text-decoration: underline;
+    color: var(--white);
+}
+
+.second-part-comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 5%;
+}
+
+#comment-creation button {
+    border-radius: 5px;
+    background-color: rgb(217, 217, 217, 0.05);
+    color: var(--light-grey);
+    border: none;
+    outline: 0.5px solid var(--light-grey);
+    padding: 0.5% 1.25%;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin: 0 0.5em;
+}
+
+#comment-creation button:hover {
+    background-color: rgb(217, 217, 217, 0.3);
+}
+
+.popup-exit-comment {
+    position: absolute;
+    right: 1.5%;
+    cursor: pointer;
+    color: var(--white);
+}
+
+.typePage-phone {
+    display: none;
+}
+
+.Home-topics {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    outline: 0.5px solid var(--light-grey);
+    background-color: rgba(102, 102, 102, 0.3);
+    margin: 5rem auto;
+    border-radius: 5px;
+    padding: 1rem;
+    font-size: 1.8em;
+    color: var(--white);
+
+}
+
+.Home-topics h1 {
+    font-weight: 100;
+    text-align: center;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 1024px) {
+    .typePage-phone {
+        border-top: 0.5px solid var(--light-grey);
+        width: 100%;
+        height: 5%;
+        margin: auto;
+        display: flex;
+        position:fixed;
+        bottom: 0;
+        justify-content: center;
+        align-items: center;
+        font-size: 1em;
+        gap: 10%;
+        padding: 1% ;
+        background-color: rgb(37, 39, 77);
+    }
+
+    .typePage-phone a {
+        text-decoration: none;
+        color: white;
+    }
+    
+    .typePage {
+        display: none;
+    }
+
+
+    article {
+        width: 60%;
+    }
+
+    .tag-zone-post {
+        display: block;
+    }
+
+    .btn-post-zone {
+       position: absolute;
+       top: 5.5%;
+    }
+
+    .dropbtn {
+        position: absolute;
+        top: 10%;
+    }
+}

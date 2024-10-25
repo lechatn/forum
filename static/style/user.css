@@ -1,0 +1,203 @@
+
+main {
+    margin-top: 8%;
+    color: var(--light-grey);
+    display: flex;
+}
+
+.left-part {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-part a {
+    text-decoration: none;
+    color: var(--light-grey);
+}
+
+.user-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--grey);
+    border-radius: 15px;
+    padding: 10%;
+}
+
+.user-info h3 {
+    margin-top: 10%;
+    margin-bottom: 0;
+    font-size: 2em;
+}
+
+.user-info i {
+    font-size: 6em;
+}
+
+.profil-choice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid var(--grey);
+    padding: 10% ;
+    border-radius: 15px;
+    margin-top: 10%;
+}
+
+
+.ProfilePicture img {
+    border-radius: 50%;
+}
+
+.profil-choice a {
+    font-size: 1.5em;
+    color: var(--light-grey);
+    margin-bottom: 15%;
+
+}
+
+/* Right part */
+
+.right-part {
+    width: 75%;
+}
+
+.right-part h2 {
+    text-align: center;
+    margin-bottom: 5%;
+    font-weight: normal;
+    font-size: 2em;
+}
+
+.profil-info {
+    display: flex;
+
+}
+
+.fixed-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fixed-info input {
+    width: 100%;
+    padding: 10px;
+    margin: 5% 0;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    background: var(--bg);
+    background-color: rgb(217, 217, 217, 0.05);
+    color: white;
+}
+
+.unfixed-info  {
+    width: 50%;
+}
+
+.unfixed-info form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#changeinfo-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 5% 0;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    background: var(--bg);
+    background-color: rgb(217, 217, 217, 0.05);
+    color: white;
+}
+
+#changeinfo-form button {
+    align-items: center;
+    width: 20%;
+    padding: 10px;
+    margin: 10% 20% auto auto  ;
+    border: none;
+    border-radius: 5px;
+    background: var(--blue);
+    color: white;
+    cursor: pointer;
+    display: block;
+}
+
+#changeinfo-form button:hover {
+    background: var(--bg);
+    outline: 1px solid var(--blue);
+}
+
+#changeinfo-form #birthdate {
+    width: 50%;
+}
+
+.input-box-login {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.btn-pdp {
+    display: none;
+  }
+
+  .custom-file-upload {
+    justify-content: center;
+    display: flex;
+    margin: 5% auto;
+    border-radius: 5px;
+    background-color: rgb(217, 217, 217, 0.05);
+    color: var(--light-grey);
+    border: none;
+    outline: 0.5px solid var(--light-grey);
+    cursor: pointer;
+  }
+
+.btn-pdp2 {
+    display: flex;
+    margin: 5% auto;
+    border-radius: 5px;
+    background-color: rgb(217, 217, 217, 0.05);
+    color: var(--light-grey);
+    border: none;
+    outline: 0.5px solid var(--light-grey);
+    cursor: pointer;
+}
+
+.btn-pdp2:hover, .custom-file-upload:hover {
+    background-color: rgb(217, 217, 217, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .left-part {
+        width: 50%;
+        align-items: center;
+        justify-self: center;
+        text-align: center;
+        margin: 10% auto;
+    }
+
+    .user-info {
+        width: 80%;
+    }
+
+   
+    .right-part {
+        width: 100%;
+        justify-content: center;
+    }
+    
+}
